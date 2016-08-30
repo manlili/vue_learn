@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue方法</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div class="test">
+			<p class="pp">{{message}}</p>
+			<button @click="changeColor">使用vue方法</button>
+	</div>
+		<script>
+			var vue = new Vue({
+				el: ".test",   //必须有el
+				data:{
+					message:"这是个测试"
+				},
+				methods:{
+					changeColor:function () {
+						document.getElementsByClassName("pp")[0].style.color="#ff0000";
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

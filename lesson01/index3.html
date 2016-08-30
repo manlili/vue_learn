@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue数组</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<ul class="test" v-for="item in message">
+			<li>{{item}}</li>
+		</ul>
+		<script>
+			var vue = new Vue({
+				el: ".test",   //必须有el
+				data:{
+					message:["aa","bb","cc"]
+				}
+			})
+		</script>
+	</body>
+</html>
