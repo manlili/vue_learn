@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue实例与方法</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">
+			{{a}}
+		</div>
+		<script type="text/javascript">
+			var data = {
+				a: 1
+			}
+			var myVue = new Vue({
+				el: ".test",
+				data: data
+			})
+		</script>
+	</body>
+</html>
