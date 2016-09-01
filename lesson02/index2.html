@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue基础理论--绑定 DOM 结构 到数据</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test"> <!--视图View-->
+			<p v-if="isShow">
+				我是视图View
+			</p>
+		</div>
+		<script type="text/javascript">
+			var datas={    //数据Model
+				isShow:true
+			};
+			
+			var myVue = new Vue({   //vue库,连接View和Model
+				el:".test",
+				data:datas
+			})
+		</script>
+	</body>
+</html>
