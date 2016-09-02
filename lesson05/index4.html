@@ -8,13 +8,14 @@
 	</head>
 	<body>
 		<div class="test">
-			{{message | capitalize}}
+			{{message | currency}} <!--输出$123.47-->
+			{{message | currency '¥' "1"}} <!--输出$123.5-->
 		</div>
 		<script type="text/javascript">
 			var myVue = new Vue({
 				el: ".test",
 				data: {
-					message: "abc"
+					message: "123.4673"
 				}
 			})
 		</script>

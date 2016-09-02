@@ -8,13 +8,13 @@
 	</head>
 	<body>
 		<div class="test">
-			{{message | capitalize}}
+			{{message | lowercase}}
 		</div>
 		<script type="text/javascript">
 			var myVue = new Vue({
 				el: ".test",
 				data: {
-					message: "abc"
+					message: "ABC"
 				}
 			})
 		</script>

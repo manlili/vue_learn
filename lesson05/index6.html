@@ -8,13 +8,15 @@
 	</head>
 	<body>
 		<div class="test">
-			{{message | capitalize}}
+			<button id="btn" @click="disappear | debounce 10000">点击我,我将10秒后消失</button>
 		</div>
 		<script type="text/javascript">
 			var myVue = new Vue({
 				el: ".test",
-				data: {
-					message: "abc"
+				methods: {
+					disappear: function () {
+						document.getElementById("btn").style.display= "none";
+					}
 				}
 			})
 		</script>

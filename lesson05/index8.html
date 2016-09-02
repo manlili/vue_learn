@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue自带的过滤器</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<ul v-for="item in lili | filterBy 'o' "> <!--输出oi oa lo ouo oala-->
+				<li>{{item}}</li>
+			</ul>
+			
+			<ul v-for="item in man | filterBy 'l' in 'name' "> <!--输出lily lucy-->
+				<li>{{item.name}}</li>
+			</ul>
+			
+			<ul v-for="item in man | filterBy 'l' in 'name' 'dada' "> <!--输出lily+undefined lucy+undefined undefined+lsh-->
+				<li>{{item.name+"+"+item.dada}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					lili: ["oi", "oa", "ll", "lo" ,"ouo" ,"kk" ,"oala"],
+					man: [   //此处注意man是数组,不是对象
+					{name: "lily"},
+					{name: "lucy"},
+					{name: "oo"},
+					{dada: "lsh"},
+					{dada: "ofg"}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

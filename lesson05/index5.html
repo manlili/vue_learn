@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue自带的过滤器</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+		{{message}}	{{message | pluralize 'item'}} <!--输出: 1 item-->
+		
+			<ul v-for="item in lili">
+				<li>
+					{{item}}	{{item | pluralize 'item'}} <!--输出: 1	item 2	items 3	items-->
+				</li>
+			</ul>
+			
+			<ul v-for="item in lili">
+				<li>
+					{{item}}	{{item | pluralize 'st' 'rd'}} <!--输出: 1	st 2	rd 3	rd-->
+				</li>
+			</ul>
+			
+			<ul v-for="item in man">
+				<li>
+					{{item}}	{{item | pluralize 'item'}} <!--输出: 1	item 2	items 3	items-->
+				</li>
+			</ul>
+			
+			<ul v-for="item in man">
+				<li>
+					{{item}}	{{item | pluralize 'st' 'rd'}} <!--输出: 1	st 2	rd 3	rd-->
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					message: 1,
+					lili: [1,2,3],
+					man: {
+						name1: 1,
+						name2: 2,
+						name3: 3
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

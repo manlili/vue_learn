@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue自定义过滤器</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">
+			<!--过滤器函数始终以表达式的值作为第一个参数。带引号的参数视为字符串，而不带引号的参数按表达式计算。这里，字符串 'haha' 将传给过滤器作为第二个参数，表达式20 的值作为第三个参数。-->
+			<p>{{message | sum}}</p>
+			<p>{{message | cal "haha" 20}}</p>  
+			<p>{{message | sum | cal}}</p>
+			<input type="text" v-model="message | change">
+		</div>
+		<script type="text/javascript">
+		
+//		-----------------------------------------华丽分割线(从model->view)---------------------------------------
+			Vue.filter("sum", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+				return value + 4;
+			});
+			
+			Vue.filter('cal', function (value, begin, xing) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+				return value + begin + xing;
+			});
+
+//		-----------------------------------------华丽分割线(从view->model)---------------------------------------
+			Vue.filter("change", {
+				read: function (value) {
+					return value + 4;
+				},
+				write: function (newVal,oldVal) {
+					console.log("newVal:"+newVal); 
+					console.log("oldVal:"+oldVal);
+					return newVal;
+				}
+			});
+
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					message:12
+				}
+			});
+			
+		</script>
+	</body>
+</html>
