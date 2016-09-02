@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue插值</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			.lili-xiaoman {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test">
+			<p>{{message}}</p> <!--这个值可以实时响应-->
+			<p>{{*message}}</p> <!--单次插值,今后的数据变化就不会再引起插值更新了,例如在控制台写入:myVue.message=123-->
+			<p class="lili-{{message}}">双括号标签也可以用在属性上</p>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					message:"xiaoman"
+				}
+			})
+		</script>
+	</body>
+</html>

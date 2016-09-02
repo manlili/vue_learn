@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue数据绑定</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">
+			<a href={{url}}>点击我跳到百度首页</a> <!--这种写法没错,实际上在内部特性插值会转为 v-bind 绑定,这样会稍微降低效率-->
+			<a v-bind:href="url">点击我跳到百度首页</a>  <!--简写为:href-->
+			
+			<div style="color: {{colorA}}">我是红色</div> <!--这种写法没错,实际上在内部特性插值会转为 v-bind 绑定,这样会稍微降低效率-->
+			<div v-bind:style="{color: colorB}">我是绿色</div> <!--简写为:style-->
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					url: "https://www.baidu.com/",
+					colorA: 'red',
+					colorB: 'green' 
+				}
+			});
+		</script>
+	</body>
+</html>

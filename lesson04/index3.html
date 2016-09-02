@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue数据绑定</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">
+			<p v-if="isShow">isShow控制着我是否显示1</p>
+			<p v-if="!isShow">isShow控制着我是否显示2</p>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					isShow: true,
+				}
+			});
+		</script>
+	</body>
+</html>

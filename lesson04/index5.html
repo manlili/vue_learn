@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue数据绑定</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">
+			<button v-on:click="goAction()"> <!--可以简写为@click-->
+				点击我跳到百度
+			</button>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				methods: {
+					goAction: function () {
+						location.href = "https://www.baidu.com/";
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
