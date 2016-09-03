@@ -16,17 +16,6 @@
 			
 		</div>
 		<script type="text/javascript">
-		
-//		-----------------------------------------华丽分割线(从model->view)---------------------------------------
-			Vue.filter("sum", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
-				return value + 4;
-			});
-			
-			Vue.filter('cal', function (value, begin, xing) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
-				return value + begin + xing;
-			});
-
-//		-----------------------------------------华丽分割线(从view->model)---------------------------------------
 			Vue.filter("change", {
 				read: function (value) { // model -> view 在更新 `<input>` 元素之前格式化值
 					return value;
@@ -42,6 +31,14 @@
 				el: ".test",
 				data: {
 					message:12
+				},
+				filters: {
+					sum: function (value) {
+						return value + 4;
+					},
+					cal: function (value, begin, xing) {
+						return value + begin + xing;
+					}
 				}
 			});
 			
