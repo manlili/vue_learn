@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue自带的过滤器</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>	
+		<div class="test">
+			<!--遍历数组-->
+			<ul v-for="item in lili | orderBy 'o' 1"> <!--输出kk ll oi-->
+				<li>{{item}}</li>
+			</ul>
+			
+			<ul v-for="item in lili | orderBy 'o' -1"> <!--输出oi ll kk-->
+				<li>{{item}}</li>
+			</ul>
+			
+			<!--遍历含对象的数组-->
+			<ul v-for="item in man | orderBy 'name' 1"> <!--输出Bruce Chuck Jackie-->
+				<li>{{item.name}}</li>
+			</ul>
+			
+			<ul v-for="item in man | orderBy 'name' -1"> <!--输出Jackie Chuck Bruce-->
+				<li>{{item.name}}</li>
+			</ul>
+			
+			<!--使用函数排序-->
+			<ul v-for="item in man | orderBy ageByTen"> <!--输出Bruce Chuck Jackie-->
+				<li>{{item.name}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					lili: ["oi", "kk", "ll"],
+					man: [   //此处注意man是数组,不是对象
+			      {
+			        name: 'Jackie',
+			        age: 62
+			      },
+			      {
+			        name: 'Chuck',
+			        age: 76
+			      },
+			      {
+			        name: 'Bruce',
+			        age: 61
+			      }
+			    ]
+				},
+				methods: {
+					ageByTen: function () {
+						return 1;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
