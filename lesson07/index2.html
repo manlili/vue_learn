@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class与style绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<div class="test" :class="classObj">我是文字</div> <!--法一:用对象的方式实现-->
+		</div>	
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el:".test",
+				data: {
+					classObj: {
+						name1: false,
+						name2: true
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

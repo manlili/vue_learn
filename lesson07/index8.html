@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class与style绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<div class="otherClass" :style="[styleObjectA,styleObjectB]">我是文字</div> <!--法一:用数组和对象的方式实现-->
+		</div>	
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el:".test",
+				data: {
+					styleObjectA: {
+						color: 'red',
+						width: '100px',
+					},
+					styleObjectB: {
+						top: '20px'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

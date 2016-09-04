@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class与style绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<div class="otherClass" :class="[class1,class2]">我是文字</div> <!--法二:用数组的方式实现-->
+		</div>
+		
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el:".test",
+				data: {
+					class1: 'name1',
+					class2: 'name2',
+				}
+			})
+		</script>
+	</body>
+</html>
