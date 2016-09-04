@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue条件渲染</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<template v-if="isDisplay"> <!--if...else... 用template实现多个元素-->
+				<div>显示我1</div>
+				<div>显示我11</div>
+				<div>显示我12</div>
+				<div>显示我13</div>
+			</template>
+			<div v-else>
+				显示我2
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myVue =new Vue({
+				el: ".test",
+				data: {
+					isDisplay: 1
+				}
+			})
+		</script>
+	</body>
+</html>
