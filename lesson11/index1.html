@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue表单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<!--输入框-->
+			<input type="text" v-model="msg"> <br />
+			
+			<!--单选框-->
+			<input id="mycb1" type="radio" v-model="choose1">
+			<label for="mycb1">{{choose1}}</label>
+			
+			<!--复选框-->
+			<input id="mycb2" type="checkbox" v-model="choose2">
+			<label for="mycb2">{{choose2}}</label>
+			
+			<!--Select-->
+			<select v-model="selected">
+			  <option>A</option>
+			  <option>B</option>
+			  <option>C</option>
+			</select>
+			<span>选中: {{ selected }}</span>
+			
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: ".test",
+				data: {
+					msg: '我是文本',
+					choose1: false,
+					choose2: false,
+					selected:''
+				}
+			})
+		</script>
+	</body>
+</html>
