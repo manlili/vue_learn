@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul class="test">
+			<li v-for="item in name"> <!--获取位置第一种写法:$index是vue自带的位置索引-->
+				{{$index}}--{{item.message}}        <!--输出0--Foo    1--Bar-->
+			</li>
+			<li v-for="(index,item) in name">  <!--获取位置第二种写法:自定义一个index变量直接跟着item-->
+				{{index}}**{{item.message}}					<!--输出0**Foo    1**Bar-->
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					name: [   //注意name是数组
+			      { message: 'Foo' },
+			      { message: 'Bar' }
+			    ]
+				}
+			})
+		</script>
+	</body>
+</html>

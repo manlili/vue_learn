@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul class="test">
+			<li v-for="item in name" track-by="id"> <!--然后在替换数组 name 时，如果 Vue.js 遇到一个包含id:'01' 的新对象，vue可以复用这个已有对象的作用域与 DOM 元素。-->
+				{{$index}}--{{item.message}}        <!--输出0--Foo    1--Bar-->
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					name: [   //注意item是数组
+			      { message: 'Foo',id:01 },
+			      { message: 'Bar',id:02 }
+			    ]
+				}
+			})
+		</script>
+	</body>
+</html>

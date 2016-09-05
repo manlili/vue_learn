@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul class="test">
+			<li v-for="value in name"> 
+				{{$key}}--{{value}}     <!--输出是 FirstName--John LastName--Doe Age--30-->
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: ".test",
+				data: {
+					name:{ //注意name是对象
+			      FirstName: 'John',
+			      LastName: 'Doe',
+			      Age: 30
+			    }
+				}
+			})
+		</script>
+	</body>
+</html>
