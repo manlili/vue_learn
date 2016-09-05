@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue方法与事件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="test">
+			<button @click.stop="sayHi('你好')">说你好</button> <!-- 阻止单击事件冒泡 -->
+			<button @click.prevent="sayHi('你好')">说你好</button> <!-- 提交事件不再重载页面 -->
+			<button @click.stop.prevent="sayHi('你好')">说你好</button> <!-- 阻止单击事件冒泡和提交事件不再重载页面 -->
+			<button @click.capture="sayHi('你好')">说你好</button>  <!-- 添加事件侦听器时使用 capture 模式 -->
+			<button @click.self="sayHi('你好')">说你好</button>    <!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+			
+			<div @keyup.13="sayHi('你好')">说你好</div>  <!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: '#test',
+				methods: {      //这里使用methods
+					sayHi: function (message) {
+						alert(message)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

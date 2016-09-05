@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue方法与事件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="test">
+			<button @click="changeColor('你好',$event)">点击我</button> <!--这里使用@-->
+			<div style="height: 100px;width: 100px;background-color: red;" @mouseover="over('鼠标从我上面滑过',$event)">
+				鼠标从我上面滑过试试
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: '#test',
+				methods: {      //这里使用methods
+					changeColor: function (message, event) {
+						alert(message+event);    //弹出我被点击了,事件是[object MouseEvent]
+					},
+					over :function (message, event) {
+						alert(message+event);   //弹出鼠标从我上面滑过,事件是[object MouseEvent]
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

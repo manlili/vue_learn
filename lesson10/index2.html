@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue方法与事件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="test">
+			<button @click="sayHi('你好')">说你好</button> <!--这里使用@-->
+			<button @click="sayHi('我被点击了')">说我被点击了</button> <!--这里使用@-->
+		</div>
+		<script type="text/javascript">
+			var myVue = new Vue({
+				el: '#test',
+				methods: {      //这里使用methods
+					sayHi: function (message) {
+						alert(message)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
