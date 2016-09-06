@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue混合--定义</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<script type="text/javascript">
+			var myMinxin= {             //第一步,创建一个混合数据
+				created: function () {
+					this.hello();
+				},
+				methods: {
+					hello: function () {
+						alert('你好');
+					}
+				}
+			}
+			
+			var myComponent = Vue.extend({    //将混合注册到Vue
+				mixins: [myMinxin]
+			})
+			
+			new myComponent();    //实例化这个混合
+		</script>
+	</body>
+</html>
