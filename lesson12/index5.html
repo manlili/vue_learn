@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue组件--组件作用域</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 子组件模板 -->
+		<template id="child-template">
+		  <!--<input v-model="msg">
+		  <button v-on:click="notify">Dispatch Event</button>-->
+		  {{msg1}}
+		</template>
+		
+		<!-- 父组件模板 -->
+		<div id="events-example">
+		  <p>Messages: {{ messages | json }}</p>
+		  <child :msg1="mssss">
+		  	
+		  </child>
+		</div>
+		<script type="text/javascript">
+
+			var parent = new Vue({
+			  el: '#events-example',
+			  data: {
+			    messages: '我是父框架222',
+			    mssss: 'ddddddd'
+			  },
+			  components: {
+			  	child: {
+					  template: '#child-template',
+					  props: {msg1: String }
+					}
+			  }
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue组件--父子组件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test"> <!--局部注册-->
+			<zujian></zujian>
+		</div>
+		<script type="text/javascript">
+			var childComponent = Vue.extend({   //第一步:定义
+				template: '<div class="mychild">我是孩子</div>'
+			});
+			var parentComponent = Vue.extend({
+				template: '<div class="myParent">我是父容器<child></child></div>',  //注意此处要引用孩子组件
+				components: {
+					'child': childComponent
+				}
+			});
+			Vue.component('zujian',parentComponent);  //第二步:注册到Vue上面
+			
+			var myVue = new Vue({    //第三步:创建实例化
+				el: '.test'
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue组件--组件选项</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<div class="lala">
+				<zujian></zujian>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myComponent = Vue.extend({   
+				template: '<div>我是{{a}}{{b}}</div>',
+				data : function () {   //不想让MyComponent 所有的实例将共享同一个 data 对象,所以将data写成函数形式返回
+					return {
+						a: 1,
+						b: 2
+					}
+				},
+				el: function () {   //不想让MyComponent 所有的实例将共享同一个 el 对象,所以将el写成函数形式返回
+					return ".lala"
+				}
+			})					
+			var myVue = new Vue({
+				el: '.test',
+				components: {
+					zujian:myComponent
+				}
+			})
+		</script>
+	</body>
+</html>

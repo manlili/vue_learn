@@ -11,19 +11,32 @@
 			var myMinxin= {             //第一步,创建一个混合数据
 				created: function () {
 					this.hello();
+					this.nono();
 				},
 				methods: {
 					hello: function () {
-						alert('你好');
+						alert('你好1');
+					},
+					nono: function () {
+						alert('nono1');
 					}
 				}
 			}
 			
-			var myComponent = Vue.extend({    //注意Vue的created与minxin的created重合,这里将先执行minxin的created
+			var myComponent = Vue.extend({     //methods中对象冲突,只显示Vue实例中的方法 
 				created: function () {
-					alert('我是Vue的created');
+					this.hello();
+					this.nono();
 				},
-				mixins: [myMinxin]
+				mixins: [myMinxin],
+				methods: {
+					hello: function () {
+						alert('你好2');
+					},
+					nono: function () {
+						alert('nono2');
+					}
+				}
 			})
 			
 			new myComponent();    //实例化这个混合
