@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue组件--父子组件另一种写法</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test">
+			<zujian></zujian>
+		</div>
+		<template id="parentComponent">
+			<div class="myParent">
+				我是父容器
+				<child></child>
+			</div>
+		</template>
+		
+		<template id="childComponent">
+			<div class="mychild">
+				我是孩子
+			</div>
+		</template>
+		
+		<script type="text/javascript">
+			
+			var myVue = new Vue({ 
+				el: '.test',
+				components: {
+					zujian: {
+						template:'#parentComponent',
+						components: {
+							child: {
+								template:'#childComponent'
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
